@@ -9,10 +9,9 @@ module.exports = function (env) {
       index: './index.ts'
     },
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'dist/node'),
       filename: '[name].bundle.js',
-      libraryTarget: "commonjs",
-      library: "tools"
+      libraryTarget: "commonjs"
     },
     resolve: {
       // Add `.ts` and `.tsx` as a resolvable extension.
@@ -51,6 +50,14 @@ module.exports = function (env) {
         ]
       },
       {
+        type: 'javascript/auto',
+        test: /\.(json)$/,
+        exclude: /node_modules/,
+        loader: [
+          `file-loader?publicPath=./&name=[name].[ext]`
+        ]
+      },
+      {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
@@ -58,6 +65,10 @@ module.exports = function (env) {
           'css-loader'
         ]
       }]
+    },
+    node: {
+      __filename: false,
+      __dirname: false
     },
     externals: {
       '@tensorflow/tfjs': '@tensorflow/tfjs',

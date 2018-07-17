@@ -31,13 +31,17 @@ export class DataSet {
 
   currentTrainIndex: number = 0
 
+  getPath (src: string) {
+    return path.join(path.dirname(__filename), src)
+  }
+
   loadImg (src: string): Promise<Float32Array> {
     return new Promise((resolve, reject) => {
       const img = new Image()
       const canvas = createCanvas()
       const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
 
-      fs.readFile(src, (err, squid) => {
+      fs.readFile(this.getPath(src), (err, squid) => {
         if (err) throw err
         const img = new Image()
         img.onload = () => {
@@ -66,7 +70,7 @@ export class DataSet {
   }
 
   loadImages (srcs: string[]): Promise<Float32Array[]> {
-    return Promise.all(srcs.map(this.loadImg))
+    return Promise.all(srcs.map((src) => this.loadImg(src)))
     // .then(async imgsBytesView => imgsBytesView
     //   .reduce((preView, currentView) => this.float32Concat(preView, currentView)))
   }
@@ -75,8 +79,8 @@ export class DataSet {
     this.trainDatas = await this.loadImages(this.TRAIN_IMAGES)
     this.testDatas = await this.loadImages(this.TEST_IMAGES)
 
-    this.trainLables = await JSON.parse(fs.readFileSync(this.TRAIN_LABLES, 'utf8'))
-    this.testLables = await JSON.parse(fs.readFileSync(this.TEST_LABLES, 'utf8'))
+    this.trainLables = await JSON.parse(fs.readFileSync(this.getPath(this.TRAIN_LABLES), 'utf8'))
+    this.testLables = await JSON.parse(fs.readFileSync(this.getPath(this.TEST_LABLES), 'utf8'))
 
     this.trainM = this.trainLables.length
     this.testM = this.testLables.length

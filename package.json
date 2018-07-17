@@ -1,11 +1,11 @@
 {
   "name": "tfjs-cifar10-node",
   "version": "0.0.1",
-  "description": "Reference implementations of popular deep learning models.",
+  "description": ". implementations of popular deep learning models.",
   "main": "./dist/index.bundle.js",
   "scripts": {
     "start": "npm-run-all --parallel watch:server watch:build",
-    "watch:server": "nodemon \"./dist/index.bundle.js\" --watch \"./dist\" ",
+    "watch:server": "nodemon \"./index.js\" --watch \"./dist\" ",
     "watch:build": "webpack --watch",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
