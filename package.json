@@ -7,7 +7,9 @@
     "start": "npm-run-all --parallel watch:server watch:build",
     "watch:server": "nodemon \"./index.js\" --watch \"./dist\" ",
     "watch:build": "webpack --watch",
-    "build": "webpack",
+    "build:node": "cross-env PLATFORM=node webpack",
+    "build:web": "cross-env PLATFORM=web webpack",
+    "build": "npm-run-all --parallel build:node build:web",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

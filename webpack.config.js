@@ -1,15 +1,17 @@
 const path = require('path');
 
 module.exports = function (env) {
+  const PLATFORM = process.env.PLATFORM
+  const type = PLATFORM === 'node' ? 'node' : 'web'
   return {
     mode: 'production',
     context: path.join(process.cwd(), 'src'),
-    target: 'node',
+    target: type,
     entry: {
-      index: './index.ts'
+      index: './index_' + type + '.ts'
     },
     output: {
-      path: path.resolve(__dirname, 'dist/node'),
+      path: path.resolve(__dirname, 'dist', type),
       filename: '[name].bundle.js',
       libraryTarget: "commonjs"
     },
