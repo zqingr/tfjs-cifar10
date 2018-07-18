@@ -3,17 +3,17 @@ import * as tf from '@tensorflow/tfjs'
 
 export class Cifar10 extends DataSet {
   TRAIN_IMAGES = [
-    __non_webpack_require__('./datasets/data_batch_1.png'),
-    __non_webpack_require__('./datasets/data_batch_2.png'),
-    __non_webpack_require__('./datasets/data_batch_3.png'),
-    __non_webpack_require__('./datasets/data_batch_4.png'),
-    __non_webpack_require__('./datasets/data_batch_5.png')
+    __non_webpack_require__('./data_batch_1.png'),
+    __non_webpack_require__('./data_batch_2.png'),
+    __non_webpack_require__('./data_batch_3.png'),
+    __non_webpack_require__('./data_batch_4.png'),
+    __non_webpack_require__('./data_batch_5.png')
   ]
-  TRAIN_LABLES = __non_webpack_require__('./datasets/train_lables.json')
+  TRAIN_LABLES = __non_webpack_require__('./train_lables.json')
   TEST_IMAGES = [
-    __non_webpack_require__('./datasets/test_batch.png')
+    __non_webpack_require__('./test_batch.png')
   ]
-  TEST_LABLES = __non_webpack_require__('./datasets/test_lables.json')
+  TEST_LABLES = __non_webpack_require__('./test_lables.json')
 
   loadImg (src: string): Promise<Float32Array> {
     return new Promise((resolve, reject) => {
