@@ -64,7 +64,7 @@ const { Cifar10 } = require('tfjs-cifar10')
 ### web
 
 ```javascript
-const { Cifar10 } = require('tfjs-cifar10-web')
+import { Cifar10 } from 'tfjs-cifar10-web'
 ```
 
 
