@@ -1,28 +1,29 @@
-## 简介
-
-适用于Tensorflowjs的**cifar10**的数据集，从[python数据集](https://www.cs.toronto.edu/~kriz/cifar.html)转换而来。
-
-一开始尝试转换为json格式，但是生成后的数据大小要翻了好几倍，目前的方法是像Tensorflowjs官网里的mnist一样，转换成了图片格式，每张图片有一万个样本，每一行代表一个样本，宽度为32 * 32的大小。所以每张图片的尺寸为1024 * 10000
-
-本项目提供了一个Cifar10的类，可以快速的引用并方便的取出里面的数据，并且所有像素已经除以255做好了标准化的工作。
+English | [中文](./README_cn.md)
 
 
+## Introduction
 
-## 安装
+Dataset for **cifar10** for Tensorflowjs. Converted from [python](https://www.cs.toronto.edu/~kriz/cifar.html).
 
-#### node平台
+I initially tried to convert to the json format, but the generated data is much larger. The current method is to convert to the image format like the mnist in the official website of Tensorflowjs.  Each picture has 10,000 samples, and each line represents one. The sample has a width of 32 * 32. So the size of each image is 1024 * 10000.
+
+This project provides a Cifar10 class that can quickly reference and easily retrieve the data inside, and all pixels have been divided by 255 to do the standardization work.
+
+## Installation
+
+#### Node platform
 
 ```
 npm install tfjs-cifar10
 ```
 
-#### web平台
+#### Web platform
 
 ```
 npm install tfjs-cifar10-web
 ```
 
-注：如果使用的web平台，需要用webpack构建工具，并添加处理json的loader
+Note: If you are using a web platform, you need to use the webpack build tool and add a loader that handles json.
 
 ```javascript
 ...
@@ -37,7 +38,7 @@ npm install tfjs-cifar10-web
 ...
 ```
 
-并且要去掉处理png loader里面的 exclude: /node_modules/
+And to remove the exclude inside the png loader: /node_modules/
 
 ```javascript
 {
@@ -51,7 +52,7 @@ npm install tfjs-cifar10-web
 
 
 
-## 引用
+## Import
 
 #### node
 
@@ -59,7 +60,7 @@ npm install tfjs-cifar10-web
 const { Cifar10 } = require('tfjs-cifar10')
 ```
 
-注意：如果你用的webpack，你需要把```require```替换成```__non_webpack_require__```
+Note: If you use webpack, you need to replace ```require``` with ```__non_webpack_require__```
 
 ### web
 
@@ -69,7 +70,7 @@ import { Cifar10 } from 'tfjs-cifar10-web'
 
 
 
-## 使用
+## How to use
 
 ```javascript
 async function load () {
@@ -86,3 +87,7 @@ async function load () {
 load()
 ```
 
+## Demo
+
+ - [cifar10_cnn](https://github.com/zqingr/tfjs-examples/tree/master/src/examples/cifar10_cnn)
+ - [cifar10_resnet](https://github.com/zqingr/tfjs-examples/tree/master/src/examples/cifar10_resnet)
