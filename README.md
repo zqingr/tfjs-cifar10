@@ -81,7 +81,7 @@ async function load () {
   const {testX, testY} = data.nextTestBatch(1500)
   console.log(trainX, trainY, testX, testY)
   
-  const {X, Y} = data.nextTrainBatch() // 如果不传入 默认是取全部数据共五万个样本
+  const {X, Y} = data.nextTrainBatch() // If you do not pass in the parameters, the default is to take a total of 50,000 samples of all data.
 }
 
 load()
