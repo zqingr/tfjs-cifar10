@@ -43,7 +43,7 @@ And to remove the exclude inside the png loader: /node_modules/
 ```javascript
 {
   test: /\.(jpg|jpeg|gif|png)$/,
-  // exclude: /node_modules/, <-- 删除这行
+  // exclude: /node_modules/, <-- Delete this line
   loader: [
   `url-loader?limit=4112&publicPath=./&name=[name].[ext]`
   ]
