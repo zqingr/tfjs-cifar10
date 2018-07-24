@@ -1,8 +1,9 @@
 import { DataSet } from './datasets/base'
-import { Image, createCanvas } from 'canvas'
-import * as tf from '.0.12.2@@tensorflow/tfjs/dist'
+
 import fs from 'fs'
 import path from 'path'
+const { Image, createCanvas } = __non_webpack_require__('canvas')
+const tf = __non_webpack_require__('@tensorflow/tfjs')
 
 export class Cifar10 extends DataSet {
   TRAIN_IMAGES = [

@@ -54,8 +54,8 @@ export class Cifar10 extends DataSet {
     this.trainDatas = await this.loadImages(this.TRAIN_IMAGES)
     this.testDatas = await this.loadImages(this.TEST_IMAGES)
 
-    this.trainLables = await fetch(this.TRAIN_LABLES).then(res => res.json())
-    this.testLables = await fetch(this.TEST_LABLES).then(res => res.json())
+    this.trainLables = this.TRAIN_LABLES
+    this.testLables = this.TEST_LABLES
 
     this.trainM = this.trainLables.length
     this.testM = this.testLables.length
