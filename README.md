@@ -91,3 +91,6 @@ load()
 
  - [cifar10_cnn](https://github.com/zqingr/tfjs-examples/tree/master/src/examples/cifar10_cnn)
  - [cifar10_resnet](https://github.com/zqingr/tfjs-examples/tree/master/src/examples/cifar10_resnet)
+
+
+If you think this project is helpful to you, click on star, thank you!
